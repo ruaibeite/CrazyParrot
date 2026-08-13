@@ -83,6 +83,14 @@ Use the gear icon in the top-right corner to manage global settings:
 
 The left navigation contains projects, receipts, snapshots, and project decisions. It can be collapsed to an icon rail and remembers your choice after restarting the app.
 
+## Release 0.1.6
+
+- **Plan is genuinely read-only:** it can inspect and propose an implementation plan, but cannot edit files, run commands, or create a snapshot. Use Edit to execute an approved change.
+- **Safer document scope:** `README.md` and `AGENTS.md` are governance files and remain locked unless the user explicitly asks to update project documentation. Malformed model tool JSON is returned to the agent for correction instead of immediately failing the task.
+- **Project lifecycle controls:** archive a project from the sidebar, restore it from the Projects page, or remove its CrazyParrot-only local record after archival. These actions never delete the project folder itself.
+- **Denser workspace:** compact project, file, editor, and Agent headers; a themed task-history picker; and a dismissible, user-facing Parrot setup message replace the raw Electron error banner.
+- **Packages:** `CrazyParrot-0.1.6-arm64.dmg` is Developer ID signed, Apple notarized, stapled, and Gatekeeper verified for Apple Silicon Macs. `CrazyParrot-0.1.6-Windows-x64.exe` is the Windows x64 NSIS installer.
+
 ## Installation and first run
 
 1. Download `CrazyParrot-<version>-arm64.dmg` for macOS Apple Silicon or `CrazyParrot-<version>-Windows-x64.exe` for Windows x64 from [Releases](https://github.com/ruaibeite/CrazyParrot/releases).
