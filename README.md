@@ -1,5 +1,7 @@
 # 🦜 CrazyParrot
 
+> [简体中文](README.zh-CN.md) · [English](README.md)
+
 > AI changes you can prove and undo locally.
 
 CrazyParrot is a local AI change-control console, not another AI IDE. It helps you collaborate with an AI agent inside a local project while retaining a clear answer to four questions: what changed, why it was allowed, how it was verified, and how to undo it. It reads your project's `README.md` and `AGENTS.md`, then—when appropriate—inspects files, edits code, runs commands, and reports test evidence. Filesystem access, terminal commands, model configuration, task history, receipts, and snapshots remain managed by the local app.
