@@ -83,6 +83,13 @@ Use the gear icon in the top-right corner to manage global settings:
 
 The left navigation contains projects, receipts, snapshots, and project decisions. It can be collapsed to an icon rail and remembers your choice after restarting the app.
 
+## Release 0.1.7
+
+- **Faster large-project tasks:** task completion reuses a single project scan for both the visible diff and Change Receipt hashes, avoiding a duplicate full-tree scan.
+- **Smoother streaming workspace:** model and terminal output is batched briefly before rendering, preventing long responses from repeatedly re-rendering the entire task history.
+- **Smaller editor payload:** Monaco now uses its minimal editor entry and common syntax definitions instead of bundling unused language services. The renderer build output is reduced from about 28 MB to about 12 MB.
+- **Packages:** `CrazyParrot-0.1.7-arm64.dmg` is Developer ID signed, Apple notarized, stapled, and Gatekeeper verified for Apple Silicon Macs. `CrazyParrot-0.1.7-Windows-x64.exe` is the Windows x64 NSIS installer.
+
 ## Release 0.1.6
 
 - **Plan is genuinely read-only:** it can inspect and propose an implementation plan, but cannot edit files, run commands, or create a snapshot. Use Edit to execute an approved change.
