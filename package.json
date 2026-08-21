@@ -1,0 +1,70 @@
+{
+  "name": "crazy-parrot",
+  "version": "0.1.6",
+  "private": true,
+  "description": "A Parrot-guided local coding agent for macOS",
+  "main": "out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "npm run typecheck && electron-vite build",
+    "preview": "electron-vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "npm run build && playwright test",
+    "package:mac": "sh scripts/package-mac.sh",
+    "package:win": "npm run build && ELECTRON_MIRROR=https://npmmirror.com/mirrors/electron/ electron-builder --win nsis --x64 --config.npmRebuild=false",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "@xterm/addon-fit": "^0.11.0",
+    "monaco-editor": "^0.56.0",
+    "node-pty": "1.1.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "react-markdown": "10.1.0",
+    "xterm": "^5.3.0",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.62.1",
+    "@types/node": "26.2.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "5.2.0",
+    "electron": "43.3.0",
+    "electron-builder": "^26.0.20",
+    "electron-vite": "5.0.0",
+    "typescript": "6.0.3",
+    "vite": "7.3.6",
+    "vitest": "3.2.7"
+  },
+  "build": {
+    "appId": "com.crazyparrot.app",
+    "productName": "CrazyParrot",
+    "files": [
+      "out/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "target": "dmg",
+      "icon": "src/logo.png",
+      "category": "public.app-category.developer-tools"
+    },
+    "dmg": {
+      "title": "CrazyParrot ${version}",
+      "artifactName": "CrazyParrot-${version}-${arch}.${ext}"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "src/logo.png",
+      "artifactName": "CrazyParrot-${version}-Windows-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
